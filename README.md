@@ -104,27 +104,3 @@ python -m unittest discover -s tests -v
 | Sinal < 25% | Critico | Alternar para antena redundante |
 | Oxigenio < 90% | Critico | Isolar modulo e ativar reserva |
 | Desvio moderado | Atencao | Correcao preventiva correspondente |
-
-## Video de demonstracao
-
-O video nao e armazenado neste repositorio. Depois da gravacao, publique-o em
-um servico externo e substitua o campo abaixo:
-
-**Link:** PREENCHER LINK DO VIDEO
-
-Use o [roteiro de gravacao](ROTEIRO_VIDEO.md) para demonstrar todos os criterios
-em ate 3 minutos.
-
-## Estrutura
-
-```text
-.
-|-- Mission_Control_AI.ipynb
-|-- mission_control.py
-|-- tests/
-|-- scripts/
-|-- assets/
-|-- ROTEIRO_VIDEO.md
-|-- entrega.txt
-`-- README.md
-```
