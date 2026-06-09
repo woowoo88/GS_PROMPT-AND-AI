@@ -61,6 +61,10 @@ https://colab.research.google.com/github/woowoo88/GS_PROMPT-AND-AI/blob/main/Mis
 Execute as celulas em ordem. O notebook instala o Ollama, inicia o servidor,
 baixa o modelo `llama3.2:1b` e demonstra cenarios normal e critico.
 
+Se uma execucao anterior falhou durante a instalacao, use
+**Ambiente de execucao > Reiniciar sessao** e execute todas as celulas novamente.
+O notebook instala o pacote `zstd`, exigido pelas versoes atuais do Ollama.
+
 ## Como executar localmente
 
 Requer Python 3.10 ou superior e
