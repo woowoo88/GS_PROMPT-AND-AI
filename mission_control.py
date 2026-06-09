@@ -248,6 +248,7 @@ ANALISE ({analysis_source})
 def run(
     scenario: str,
     use_ai: bool = True,
+    require_ai: bool = False,
     ai_client: Callable[[MissionData, MissionAssessment], str] = query_ollama,
 ) -> str:
     data = get_scenario(scenario)
@@ -257,6 +258,8 @@ def run(
             analysis = ai_client(data, assessment)
             source = "LLAMA VIA OLLAMA"
         except RuntimeError as exc:
+            if require_ai:
+                raise
             analysis = f"{local_summary(data, assessment)}\nAviso: {exc}"
             source = "CONTINGENCIA LOCAL - IA INDISPONIVEL"
     else:

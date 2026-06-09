@@ -37,6 +37,14 @@ class MissionControlTests(unittest.TestCase):
         self.assertIn("LLAMA VIA OLLAMA", output)
         self.assertIn("Resposta de IA validada.", output)
 
+    def test_strict_ai_mode_does_not_hide_failure(self):
+        def unavailable_ai(data, assessment):
+            del data, assessment
+            raise RuntimeError("IA indisponivel para teste.")
+
+        with self.assertRaisesRegex(RuntimeError, "IA indisponivel"):
+            run("normal", require_ai=True, ai_client=unavailable_ai)
+
 
 if __name__ == "__main__":
     unittest.main()

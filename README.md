@@ -61,6 +61,11 @@ https://colab.research.google.com/github/woowoo88/GS_PROMPT-AND-AI/blob/main/Mis
 Execute as celulas em ordem. O notebook instala o Ollama, inicia o servidor,
 baixa o modelo `llama3.2:1b` e demonstra cenarios normal e critico.
 
+Ao final da instalacao deve aparecer `TESTE DIRETO DO LLAMA`. As demonstracoes
+do Colab usam modo estrito e exibem `ANALISE (LLAMA VIA OLLAMA)`. Se o modelo
+nao estiver funcionando, a celula para com erro em vez de apresentar uma
+resposta local como se fosse IA.
+
 Se uma execucao anterior falhou durante a instalacao, use
 **Ambiente de execucao > Reiniciar sessao** e execute todas as celulas novamente.
 O notebook instala o pacote `zstd`, exigido pelas versoes atuais do Ollama.
