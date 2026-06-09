@@ -1,11 +1,5 @@
 # Mission Control AI
 
-## Integrantes
-
-- Angela Takezawa - RM: 570797
-- Rodrigo Zambelle - RM: 570425
-- Rodrigo Fidelis Zarzar Santana - RM: 572454
-
 ## O que o projeto faz
 
 O Mission Control AI é um sistema em Python que simula o monitoramento de uma
