@@ -1,10 +1,7 @@
-__pycache__/
-*.py[cod]
-.venv/
-.idea/
-.vscode/
 *.mp4
 *.mov
 *.avi
 *.mkv
 *.webm
+__pycache__/
+.ipynb_checkpoints/

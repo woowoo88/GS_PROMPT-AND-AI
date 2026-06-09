@@ -1,117 +1,80 @@
 # Mission Control AI
 
-**Integrantes**
+## Integrantes
 
-Angela Takezawa, RM: 570797
-Rodrigo Zambelle, RM: 570425
-Rodrigo Fidelis Zarzar Santana, RM: 572454
+- Angela Takezawa - RM: 570797
+- Rodrigo Zambelle - RM: 570425
+- Rodrigo Fidelis Zarzar Santana - RM: 572454
 
-## Sobre o projeto
+## O que o projeto faz
 
-Sistema inteligente de monitoramento de uma missão espacial experimental. A
-aplicação gera ou recebe telemetria de temperatura, energia, comunicação,
-oxigênio e estado do módulo, aplica regras automáticas de segurança e usa o
-modelo Llama 3.2 1B via Ollama para analisar riscos e recomendar ações.
-
-O projeto combina duas camadas:
-
-* **Regras determinísticas:** alertas e respostas de emergência continuam
-  funcionando mesmo sem conexão com o modelo.
-* **IA generativa:** um **system prompt** especializado orienta o Llama a validar os
-  alertas e priorizar até três ações para a equipe de controle.
+O Mission Control AI é um sistema em Python que simula o monitoramento de uma
+missão espacial. Ele acompanha temperatura, energia, comunicação e status do
+módulo, gera alertas automáticos e usa o modelo Llama 3.2 3B via Ollama para
+analisar os dados e recomendar ações.
 
 ## Funcionalidades
 
-* Geração de dados simulados e três cenários reproduzíveis.
-* Monitoramento de cinco parâmetros operacionais.
-* Classificação em `NORMAL`, `ATENÇÃO` ou `CRÍTICO`.
-* Ativação automática de economia de energia, resfriamento, antena redundante e
-  reserva de oxigênio.
-* Análise contextual com Llama via API local do Ollama.
-* Contingência local identificada claramente quando a IA estiver indisponível.
-* Testes automatizados da lógica e da exibição da resposta da IA.
+- Geração de dados simulados da missão.
+- Monitoramento de quatro parâmetros operacionais.
+- Alertas automáticos para valores fora do normal.
+- Decisão automática para situações críticas.
+- System prompt com contexto de controle de missão.
+- Resposta do Llama exibida junto aos dados.
+- Cenários normal, crítico e aleatório.
 
-## Demonstracao
+## Demonstração
 
-### Operacao normal
+### Cenário normal
 
-![Cenario normal](assets/01_cenario_normal.png)
+![Cenário normal](assets/cenario_normal.png)
 
-### Parametros em atencao
+### Alerta de temperatura
 
-![Cenario de atencao](assets/02_cenario_atencao.png)
+![Alerta de temperatura](assets/alerta_temperatura.png)
 
-### Situacao critica e respostas automaticas
+### Situação crítica
 
-![Cenario critico](assets/03_cenario_critico.png)
+![Situação crítica](assets/cenario_critico.png)
 
-### Analise apresentada pela IA
+### Resposta da IA
 
-![Analise da IA](assets/04_analise_ia.png)
+![Resposta da IA](assets/resposta_ia.png)
 
-## Como executar no Google Colab
+## Como executar
 
-Abra o notebook:
-[Mission_Control_AI.ipynb](Mission_Control_AI.ipynb)
+Abra o notebook no Google Colab:
 
-No GitHub, clique em **Open in Colab** ou acesse:
+[Acessar o Mission Control AI no Colab](https://colab.research.google.com/github/woowoo88/GS_PROMPT-AND-AI/blob/main/Mission_Control_AI.ipynb)
 
-https://colab.research.google.com/github/woowoo88/GS_PROMPT-AND-AI/blob/main/Mission_Control_AI.ipynb
+1. No Colab, clique em **Ambiente de execução > Executar tudo**.
+2. Aguarde a instalação do Ollama e o download do modelo.
+3. Veja os cenários normal, crítico e aleatório nos últimos blocos.
 
-Execute as celulas em ordem. O notebook instala o Ollama, inicia o servidor,
-baixa o modelo `llama3.2:1b` e demonstra cenarios normal e critico.
-
-Ao final da instalacao deve aparecer `TESTE DIRETO DO LLAMA`. As demonstracoes
-do Colab usam modo estrito e exibem `ANALISE (LLAMA VIA OLLAMA)`. Se o modelo
-nao estiver funcionando, a celula para com erro em vez de apresentar uma
-resposta local como se fosse IA.
-
-Se uma execucao anterior falhou durante a instalacao, use
-**Ambiente de execucao > Reiniciar sessao** e execute todas as celulas novamente.
-O notebook instala o pacote `zstd`, exigido pelas versoes atuais do Ollama.
-
-## Como executar localmente
-
-Requer Python 3.10 ou superior e
-[Ollama](https://ollama.com/download).
-
-```bash
-ollama serve
-ollama pull llama3.2:1b
-python mission_control.py --scenario critical
-```
-
-Para demonstrar apenas as regras locais, sem iniciar o modelo:
-
-```bash
-python mission_control.py --scenario normal --no-ai
-python mission_control.py --scenario attention --no-ai
-python mission_control.py --scenario critical --no-ai
-```
-
-Os cenarios disponiveis sao `normal`, `attention`, `critical` e `random`.
-
-## Testes
-
-```bash
-python -m unittest discover -s tests -v
-```
+Na primeira execução, o download do modelo pode levar alguns minutos.
 
 ## Tecnologias
 
-- Python 3
-- Llama 3.2 1B
-- Ollama
+- Python
 - Google Colab
-- API HTTP local do Ollama
-- Pillow para gerar as evidencias visuais
+- Ollama
+- Llama 3.2 3B
 
-## Decisoes automaticas
+Foi usada a versão 3B da família Llama porque ela apresentou classificações
+mais consistentes nos testes dos cenários normal, de atenção e crítico.
 
-| Condicao | Nivel | Resposta |
+## Regras de decisão
+
+| Parâmetro | Condição crítica | Resposta automática |
 |---|---|---|
-| Temperatura >= 45 C | Critico | Ativar resfriamento de emergencia |
-| Energia < 20% | Critico | Economia e desligamento de cargas |
-| Sinal < 25% | Critico | Alternar para antena redundante |
-| Oxigenio < 90% | Critico | Isolar modulo e ativar reserva |
-| Desvio moderado | Atencao | Correcao preventiva correspondente |
+| Temperatura | Acima de 80 °C | Ativar resfriamento de emergência |
+| Energia | Abaixo de 20% | Ativar modo de economia |
+| Comunicação | Instável ou perdida | Reiniciar antena e usar canal reserva |
+| Módulo | Falha | Isolar o módulo e solicitar diagnóstico |
+
+## Vídeo de demonstração
+
+O vídeo será gravado e publicado externamente. O arquivo de vídeo não faz parte
+do repositório.
+
+**Link:** PREENCHER APÓS PUBLICAR O VÍDEO

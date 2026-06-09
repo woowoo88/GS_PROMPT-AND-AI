@@ -1,8 +1,10 @@
-Nome e RMs dos integrantes
+Nome completo e RM dos integrantes:
+- Angela Takezawa - RM: 570797
+- Rodrigo Zambelle - RM: 570425
+- Rodrigo Fidelis Zarzar Santana - RM: 572454
 
-Angela Takezawa, RM: 570797
-Rodrigo Zambelle, RM: 570425
-Rodrigo Fidelis Zarzar Santana, RM: 572454
+Link do repositório GitHub:
+https://github.com/woowoo88/GS_PROMPT-AND-AI
 
-Link do video de demonstracao:
-...
+Link do vídeo de demonstração:
+PREENCHER APÓS PUBLICAR O VÍDEO
