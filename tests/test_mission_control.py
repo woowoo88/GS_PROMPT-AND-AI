@@ -2,6 +2,7 @@ import unittest
 
 from mission_control import (
     SCENARIOS,
+    SYSTEM_PROMPT,
     assess_mission,
     build_user_prompt,
     run,
@@ -27,6 +28,12 @@ class MissionControlTests(unittest.TestCase):
         self.assertIn("telemetria", prompt)
         self.assertIn("temperature_c", prompt)
         self.assertIn("avaliacao_deterministica", prompt)
+
+    def test_system_prompt_declares_fictional_academic_context(self):
+        normalized = SYSTEM_PROMPT.lower()
+        self.assertIn("simulacao academica", normalized)
+        self.assertIn("totalmente ficticia", normalized)
+        self.assertIn("nao existem armas", normalized)
 
     def test_ai_response_is_displayed(self):
         def fake_ai(data, assessment):
