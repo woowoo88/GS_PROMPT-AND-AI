@@ -2,32 +2,34 @@
 
 **Integrantes**
 
-- PREENCHER NOME COMPLETO - RM: PREENCHER
+Angela Takezawa, RM: 570797
+Rodrigo Zambelle, RM: 570425
+Rodrigo Fidelis Zarzar Santana, RM: 572454
 
 ## Sobre o projeto
 
-Sistema inteligente de monitoramento de uma missao espacial experimental. A
-aplicacao gera ou recebe telemetria de temperatura, energia, comunicacao,
-oxigenio e estado do modulo, aplica regras automaticas de seguranca e usa o
-modelo Llama 3.2 1B via Ollama para analisar riscos e recomendar acoes.
+Sistema inteligente de monitoramento de uma missão espacial experimental. A
+aplicação gera ou recebe telemetria de temperatura, energia, comunicação,
+oxigênio e estado do módulo, aplica regras automáticas de segurança e usa o
+modelo Llama 3.2 1B via Ollama para analisar riscos e recomendar ações.
 
 O projeto combina duas camadas:
 
-- **Regras deterministicas:** alertas e respostas de emergencia continuam
-  funcionando mesmo sem conexao com o modelo.
-- **IA generativa:** um system prompt especializado orienta o Llama a validar os
-  alertas e priorizar ate tres acoes para a equipe de controle.
+* **Regras determinísticas:** alertas e respostas de emergência continuam
+  funcionando mesmo sem conexão com o modelo.
+* **IA generativa:** um **system prompt** especializado orienta o Llama a validar os
+  alertas e priorizar até três ações para a equipe de controle.
 
 ## Funcionalidades
 
-- Geracao de dados simulados e tres cenarios reproduziveis.
-- Monitoramento de cinco parametros operacionais.
-- Classificacao em `NORMAL`, `ATENCAO` ou `CRITICO`.
-- Ativacao automatica de economia de energia, resfriamento, antena redundante e
-  reserva de oxigenio.
-- Analise contextual com Llama via API local do Ollama.
-- Contingencia local identificada claramente quando a IA estiver indisponivel.
-- Testes automatizados da logica e da exibicao da resposta da IA.
+* Geração de dados simulados e três cenários reproduzíveis.
+* Monitoramento de cinco parâmetros operacionais.
+* Classificação em `NORMAL`, `ATENÇÃO` ou `CRÍTICO`.
+* Ativação automática de economia de energia, resfriamento, antena redundante e
+  reserva de oxigênio.
+* Análise contextual com Llama via API local do Ollama.
+* Contingência local identificada claramente quando a IA estiver indisponível.
+* Testes automatizados da lógica e da exibição da resposta da IA.
 
 ## Demonstracao
 
